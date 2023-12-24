@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  flask-app:
+    build: .
+    ports:
+      - "5000:5000"
+    depends_on:
+      - db
+    environment:
+      - DATABASE_URL=postgres://postgres:password@db:5432/hiking_trails  # Replace with your PostgreSQL settings
+
+  db:
+    image: postgres
+    environment:
+      POSTGRES_DB: hiking_trails
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: goldie12
