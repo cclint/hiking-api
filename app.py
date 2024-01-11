@@ -1,8 +1,11 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from db import get_connection, get_cursor, get_all_trails, add_trail
 
 app = Flask(__name__)
 
+@app.route('/') 
+def index():
+    return render_template('index.html')
 
 @app.route('/trails', methods=['GET'])
 def get_trails():
