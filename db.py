@@ -16,8 +16,8 @@ def get_cursor(conn):
     return conn.cursor()
 
 def get_all_trails(cursor):
-    cursor.execute("SELECT * FROM trails")
+    cursor.execute("SELECT * FROM trails ORDER BY name")
     return cursor.fetchall()
 
 def add_trail(cursor, new_trail):
-    cursor.execute("INSERT INTO trails (name, city) VALUES (%s, %s)", (new_trail['name'], new_trail['city']))
+    cursor.execute("INSERT INTO trails (name, city, description) VALUES (%s, %s, %s)", (new_trail['name'], new_trail['city'], new_trail['description']))
