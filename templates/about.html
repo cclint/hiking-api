@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+<h2>About Alaska Hiking API</h2>
+<p>The Hiking API app was designed by the Clint Campbell and Corey Miller in 2024 as a vehicle for understanding CI/CD and relevant technologies (Docker, Jenkins, automated testing technologies, etc.).</p>
+<hr class="thicker" />
+<h4>GET /trail</h4>
+<p>Allows user to get all trail information.</p>
+<b>Response</b>
+<div class="grayhighlight">
+    {<br />
+    <span class="tabit"></span>"id" : id,<br />
+    <span class="tabit"></span>"name" : name,<br />
+    <span class="tabit"></span>"city" : city<br />
+    <span class="tabit"></span>"description" : description<br />
+    }        
+</div>
+<hr />
+<h4>POST /trail</h4>
+<p>Allows user to submit trail information. The id is set by the database.</p>
+<b>Request</b>
+<table class="fancy">
+    <tr>
+        <th>Key</th>
+        <th>Value</th>
+        <th>Description</th>
+    </tr>
+    <tr>
+        <td>name</td>
+        <td>String</td>
+        <td>The name of the trail being submitted</td>
+    </tr>
+    <tr>
+        <td>city</td>
+        <td>String</td>
+        <td>The name of the city where the trail being submitted resides</td>
+    </tr>
+    <tr>
+        <td>description</td>
+        <td>String</td>
+        <td>A description of the trail being submitted</td>
+    </tr>
+</table>
+
+{% endblock %}

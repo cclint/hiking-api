@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if message %}
+<p><b>{{ message }}</b></p>
+{% endif %}
+
+<h2>Trail List</h2>
+{% if trails_data %}
+<table class="fancy2" style="width:80%">
+  <tr>
+    <th>Name</th>
+    <th>City</th>
+    <th>Description</th>
+  </tr>
+  {% for trail in trails_data %}
+  <tr>
+    <td>{{trail.name}}</td>
+    <td>{{trail.city}}</td>
+    <td>{{trail.description}}</td>
+  </tr>
+  {% endfor %}
+</table>
+{% else %}
+<p>No trails have been submitted yet.</p>
+{% endif %}
+{% endblock %}
