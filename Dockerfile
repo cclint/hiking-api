@@ -14,9 +14,8 @@ RUN apt-get update \
 COPY . /hiking-api
 
 # Install any dependencies
-# If you have a requirements.txt file, uncomment the line below
-# COPY requirements.txt /app
-# RUN pip install -r requirements.txt
+COPY requirements.txt /hiking-api
+RUN pip install -r requirements.txt
 
 # Create PostgreSQL database and user
 USER postgres
