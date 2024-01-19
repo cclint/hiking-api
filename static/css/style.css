@@ -1,0 +1,93 @@
+a {
+    color:#fff;
+}
+a:link {
+    color: #fff;
+}
+a:visited {
+    color: #fff;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(20,50,71);
+    background: linear-gradient(0deg, rgba(20,50,71,1) 0%, rgba(41,104,146,1) 100%);
+}
+#container {
+    width:75%;
+    background-color:#fff;
+    margin: 0 auto;
+    box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+}
+#content {
+    padding:20px;
+}
+#toplogo {
+    width:100%;
+}
+#menubar {
+    background: rgb(30,19,12);
+    background: linear-gradient(0deg, rgba(30,19,12,1) 0%, rgba(69,43,28,1) 100%);             
+    min-height:30px;
+    width:100%;
+    color: #fff;
+    word-spacing: 90px;
+    text-align:right;
+    font-size:21px;
+    font-family: 'Permanent Marker', cursive;
+}
+#menubar p {
+    margin:0;
+    padding:0;
+    padding-right: 20px;
+    padding-top: 5px;
+}
+form {
+    margin-top:20px;
+    margin-left:20px;
+    margin-bottom:20px;
+    width:70%;
+}
+.grayhighlight {
+    background-color:#ccc;
+    border-radius:30px;
+    padding:5px;
+    padding-left:20px;
+    margin:2px;
+    width:50%;
+}
+.tabit {
+    padding-left:20px;
+}
+.fancy, .fancy2 {
+    border-collapse: collapse;
+}
+.fancy2 {
+    margin-bottom:20px;
+}
+.fancy td, .fancy th, .fancy2 td, .fancy2 th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.fancy tr:nth-child(even){background-color:#f2f2f2;}
+.fancy tr:hover {background-color:#ddd;}
+.fancy th {
+    padding-top:12px;
+    padding-bottom:12px;
+    text-align:left;
+    background-color:#555;
+    color:#fff;
+}
+.fancy2 tr:nth-child(even){background-color:#f2f2f2;}
+.fancy2 tr:hover {background-color:#b8dcee;}
+.fancy2 th {
+    padding-top:12px;
+    padding-bottom:12px;
+    text-align:left;
+    background-color:#33658f;
+    color:#fff;
+}
+.thicker {
+    border-top: 3px double #888; 
+}
