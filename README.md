@@ -25,7 +25,7 @@ pip install psycopg2-binary
 ## Setting Up the Database
 
 - Create a PostgreSQL database named `test`.
-- Create a table named `trails` with columns: `id` (SERIAL), `name` (VARCHAR), `city` (VARCHAR).
+- Create a table named `trails` with columns: `id` (SERIAL), `name` (VARCHAR), `city` (VARCHAR), `description` (TEXT).
 
 ## Usage
 
