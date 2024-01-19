@@ -6,6 +6,7 @@
 {% endif %}
 
 <h2>Trail List</h2>
+{% if trails_data %}
 <table class="fancy2" style="width:80%">
   <tr>
     <th>Name</th>
@@ -20,4 +21,7 @@
   </tr>
   {% endfor %}
 </table>
-  {% endblock %}
+{% else %}
+<p>No trails have been submitted yet.</p>
+{% endif %}
+{% endblock %}
