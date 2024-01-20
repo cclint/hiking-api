@@ -15,7 +15,8 @@ COPY . /hiking-api
 
 # Install any dependencies
 COPY requirements.txt /hiking-api
-RUN pip install -r requirements.txt
+RUN pip install --trusted-host pypi.org --trusted-host files.pythonhosted.org -r requirements.txt -vvv
+
 
 # Create PostgreSQL database and user if not exists
 USER postgres
@@ -35,8 +36,10 @@ RUN service postgresql start \
 
 # Create the trails table in the hiking_trails database
 RUN service postgresql start \
-    && psql -d hiking_trails -U postgres -a -f /hiking-api/init.sql \
-    && service postgresql stop
+    && psql -e -d hiking_trails -U postgres -a -f /hiking-api/init.sql
+
+# Expose port
+EXPOSE 5000
 
 # Command to run the application when the container starts
 CMD ["python", "app.py"]
