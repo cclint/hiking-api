@@ -18,3 +18,5 @@ services:
       POSTGRES_DB: hiking_trails
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: goldie12
+    volumes:
+      - ./init_db/create_table.sql:/docker-entrypoint-initdb.d/create_table.sql
