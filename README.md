@@ -96,7 +96,3 @@ pip install psycopg2-binary
 
 - Implement authentication mechanisms to secure API endpoints and control access.
 - Ensure proper error handling to handle failed requests and validation errors.
-
----
-
-This documentation provides a basic guide to set up and use the Flask API for managing hiking trails. Further customization and improvements can be made based on specific project requirements.
