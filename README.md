@@ -1,4 +1,4 @@
-# Building a Hiking Trails API with Flask
+# Building a RESTful API with Flask
 
 ## Overview
 This documentation provides guidelines and steps to build a RESTful API using Flask to manage hiking trails data. The API allows users to retrieve existing trails and add new trail entries.
