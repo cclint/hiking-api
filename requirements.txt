@@ -4,3 +4,6 @@ psycopg2==2.9.1
 pytest==7.4.4
 chromedriver-py==120.0.6099.109
 selenium==4.17.2
+flake8
+black
+click
