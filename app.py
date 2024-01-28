@@ -1,10 +1,7 @@
 from flask import Flask, jsonify, request, render_template
-from db import get_connection, get_cursor, get_all_trails, add_trail, init_db
-import psycopg2
+from db import get_connection, get_cursor, get_all_trails, add_trail
 
 app = Flask(__name__)
-
-
 
 @app.route('/add') 
 def addtrailform():
@@ -14,17 +11,10 @@ def addtrailform():
 @app.route('/trails', methods=['GET'])
 def get_trails():
     conn = get_connection()
-    print(conn)
     cursor = get_cursor(conn)
-    init_db(conn)
-    try:
-        trails = get_all_trails(cursor)
-    except psycopg2.Error as e:
-        return "failed"
-
+    trails = get_all_trails(cursor)
     trails_data = [{'id': trail[0], 'name': trail[1], 'city': trail[2], 'description': trail[3]} for trail in trails]
     return render_template('view.html', trails_data=trails_data)
-    return "success"
 
 @app.route('/trails', methods=['POST'])
 def add_trail_route():
@@ -44,8 +34,6 @@ def add_trail_route():
 @app.route('/about', methods=['GET'])
 def about_page():
     return render_template('about.html')
-
-
 
 if __name__ == '__main__':
     # run app in debug mode on port 5000
