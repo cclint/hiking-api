@@ -2,44 +2,192 @@
 
 {% block content %}
 <h2>About Alaska Hiking API</h2>
-<p>The Hiking API app was designed by the Clint Campbell and Corey Miller in 2024 as a vehicle for understanding CI/CD and relevant technologies (Docker, Jenkins, automated testing technologies, etc.).</p>
+<p>The Hiking API app was designed by the DOT employees in 2024 as a vehicle for understanding CI/CD and relevant technologies (Docker, Jenkins, automated testing technologies, etc.).</p>
 <hr class="thicker" />
-<h4>GET /trail</h4>
-<p>Allows user to get all trail information.</p>
-<b>Response</b>
-<div class="grayhighlight">
-    {<br />
-    <span class="tabit"></span>"id" : id,<br />
-    <span class="tabit"></span>"name" : name,<br />
-    <span class="tabit"></span>"city" : city<br />
-    <span class="tabit"></span>"description" : description<br />
-    }        
+<h4>trails</h4>
+
+<div class="accordion get"><button>GET</button><span>/trails</span>Get all trails in the trail database</div>
+<div class="panel getpanel">
+    <div><b>Parameters</b></div>
+    <div>No parameters</div>
+    <div><b>Responses</b></div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>200</td>
+                    <td>
+                        Successful operation
+                        <div class="code">
+                            [<br />
+                            <span class="tabit"></span>{<br />
+                            <span class="tabit">"id": 0,</span><br />
+                            <span class="tabit">"name": "Flattop Trail",</span><br />
+                            <span class="tabit">"city": "Anchorage, AK",</span><br />
+                            <span class="tabit">"description": "The most well-tread trail in Anchorage"</span><br />
+                            <span class="tabit"></span>}<br />
+                            ]
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>204</td>
+                    <td>No content</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
-<hr />
-<h4>POST /trail</h4>
-<p>Allows user to submit trail information. The id is set by the database.</p>
-<b>Request</b>
-<table class="fancy">
-    <tr>
-        <th>Key</th>
-        <th>Value</th>
-        <th>Description</th>
-    </tr>
-    <tr>
-        <td>name</td>
-        <td>String</td>
-        <td>The name of the trail being submitted</td>
-    </tr>
-    <tr>
-        <td>city</td>
-        <td>String</td>
-        <td>The name of the city where the trail being submitted resides</td>
-    </tr>
-    <tr>
-        <td>description</td>
-        <td>String</td>
-        <td>A description of the trail being submitted</td>
-    </tr>
-</table>
+<div class="accordion get"><button>GET</button><span>/trails/{trailId}</span>Get a single trail based on trail ID</div>
+<div class="panel getpanel">
+    <div><b>Parameters</b></div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><b>trailId</b><br /><small>integer</small><br /><i><small>(path)</small></i></td>
+                    <td>ID of the trail to return</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div><b>Responses</b></div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>200</td>
+                    <td>
+                        Successful operation
+                        <div class="code">
+                            [<br />
+                            <span class="tabit"></span>{<br />
+                            <span class="tabit">"id": 0,</span><br />
+                            <span class="tabit">"name": "Flattop Trail",</span><br />
+                            <span class="tabit">"city": "Anchorage, AK",</span><br />
+                            <span class="tabit">"description": "The most well-tread trail in Anchorage"</span><br />
+                            <span class="tabit"></span>}<br />
+                            ]
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td>204</td>
+                    <td>No content</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="accordion post"><button>POST</button><span>/trails</span>Add a new trail to the trail database</div>
+<div class="panel postpanel">
+    <div><b>Parameters</b></div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>body</td>
+                    <td>
+                        Trail object that needs to be added to the store
+                        <div class="code">
+                            {<br />
+                            <span class="tabit">"name":"Gold Mint Trail"</span><br />
+                            <span class="tabit">"location": "Willow, AR",</span><br />
+                            <span class="tabit">"description": "The Gold Mint Trail sits adjacent to Hatcher's Pass. Beautiful scenery!"</span><br />
+                            }
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div><b>Responses</b></div>
+    <div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Code</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>200</td>
+                    <td>
+                        Successful operation
+                    </td>
+                </tr>
+                <tr>
+                    <td>405</td>
+                    <td>Invalid input</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="accordion put"><button>PUT</button><span>/trails/{trailId}</span>Update a single trail based on trail ID</div>
+<div class="panel putpanel">
+    <p>I love chicken!</p>
+</div>
+<div class="accordion delete"><button>DELETE</button><span>/trails/{trailId}</span>Delete a single trail based on trail ID</div>
+<div class="panel deletepanel">
+    <p>I love chicken!</p>
+</div>
+<br />
+<h4>rating</h4>
+<div class="accordion get"><button>GET</button><span>/rating/{trailId}</span>Get average rating for specific trail based on all users</div>
+<div class="accordion post"><button>POST</button><span>/rating/{trailId}/{rating}</span>Add a rating for specific trail</div>
+<div class="panel postpanel">
+    <p>I love pizza!</p>
+</div>
+<div class="accordion put"><button>PUT</button><span>/rating/{trailId}/{rating}</span>Update a single trail's rating based on trail ID</div>
+<div class="panel putpanel">
+    <p>I love chicken!</p>
+</div>
+<div class="accordion delete"><button>DELETE</button><span>/rating/{trailId}</span>Delete a specific rating based on trail ID</div>
+<div class="panel deletepanel">
+    <p>I love chicken!</p>
+</div>
+<br />
+<h4>user</h4>
+<div class="accordion get"><button>GET</button><span>/user/{username}</span>Get user by user name</div>
+<div class="accordion post"><button>POST</button><span>/user/</span>Create user</div>
+<div class="panel postpanel">
+    <p>I love pizza!</p>
+</div>
+<div class="accordion put"><button>PUT</button><span>/user/{username}</span>Update user</div>
+<div class="panel putpanel">
+    <p>I love chicken!</p>
+</div>
+<div class="accordion delete"><button>DELETE</button><span>/user/{username}</span>Delete a specific user based on user ID</div>
+<div class="panel deletepanel">
+    <p>I love chicken!</p>
+</div>
+<br />
+
 
 {% endblock %}
