@@ -91,3 +91,119 @@ form {
 .thicker {
     border-top: 3px double #888; 
 }
+/* Style the buttons that are used to open and close the accordion panel */
+.accordion {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 10px;
+    width: 100%;
+    text-align: left;
+    border-radius:10px;
+    transition: 0.4s;
+    margin-top:5px;
+}
+
+.accordion span {
+    display:inline-block;
+    margin-right: 10px;
+    font-size:20px;
+    font-weight:bold;
+    min-width:250px;
+}
+
+.accordion:after {
+    content: '\02795'; /* Unicode character for "plus" sign (+) */
+    font-size: 13px;
+    color: #777;
+    float: right;
+    margin-left: 5px;
+}
+
+.active:after {
+    content: "\2796"; /* Unicode character for "minus" sign (-) */
+}
+
+.accordion button {
+    border: none;
+    color: #fff;
+    border-radius:10px;
+    padding:5px 10px 5px 10px;
+    font-weight: bold;
+    margin-right: 10px;
+    min-width: 100px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active {
+    border-radius: 10px 10px 0px 0px;
+}
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+    padding: 0px;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+    border-radius:0px 0px 10px 10px;
+}
+.panel div {
+    padding:10px;
+}
+.panel div:nth-child(odd) {
+    background-color:#fff;
+}
+.panel table {
+    min-width:90%;
+    margin:20px 0 20px 0;
+}
+.panel td {
+    vertical-align:top;
+}
+.get {
+    background-color:#ecf3fb;
+    border:#6eb0ff solid 1px;
+}
+.getpanel {
+    border:#6eb0ff solid 1px;
+    background-color:#ecf3fb;
+}
+.get button {
+    background-color:#6eb0ff;
+}
+.post {
+    background-color:#ebf6ef;
+    border:#49cc90 solid 1px;
+}
+.postpanel {
+    border:#49cc90 solid 1px;
+    background-color:#ebf6ef;
+}
+.post button {
+    background-color:#49cc90;
+}
+.put {
+    background-color:#faf1e4;
+    border:#f5a01b solid 1px;
+}
+.putpanel {
+    border:#f5a01b solid 1px;
+}
+.put button {
+    background-color:#f5a01b;
+}
+.delete {
+    background-color:#f9e7e7;
+    border:#ef3b38 solid 1px;
+}
+.deletepanel {
+    border:#ef3b38 solid 1px;
+}
+.delete button {
+    background-color:#ef3b38;
+}
+.code {
+    background-color:#333 !important;
+    color:#fff;
+    border-radius:10px;
+}
