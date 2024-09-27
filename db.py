@@ -1,5 +1,8 @@
 import psycopg2
 
+import click
+from flask import current_app, g
+
 # connect to postgresql
 def get_connection():
     try:
@@ -12,6 +15,17 @@ def get_connection():
         )
     except Exception as e:
         print(e)
+
+# Initialize the db with the necessary table
+def init_db(conn):
+    cur = conn.cursor()
+    cur.execute("CREATE TABLE IF NOT EXISTS trails (id SERIAL PRIMARY KEY, name VARCHAR(255) NOT NULL, city VARCHAR(255) NOT NULL, description TEXT)")
+    conn.commit()
+
+    # with current_app.open_resource('init_db/create_table.sql') as f:
+    #     db.executescript(f.read().decode('utf8'))
+    print("database initialized")
+
 # create the cursor object (this acts as middleware between postgresql db connection and the query itself.)
 # essentially the cursor object is used to send commands to a postgresql db session
 def get_cursor(conn):

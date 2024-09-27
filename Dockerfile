@@ -5,10 +5,7 @@ FROM python:3.9
 WORKDIR /hiking-api
 
 # Install PostgreSQL and other required packages
-RUN apt-get update \
-    && apt-get install -y postgresql postgresql-contrib \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+# no longer needed
 
 # Copy the current directory contents into the container at /hiking-api
 COPY . /hiking-api
